@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SIA</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_daftar">Daftar</string>
+    <string name="nav_biodata">Profile</string>
+    <string name="nav_setting">Settings</string>
+    <string name="nav_logout">Logout</string>
+</resources>
