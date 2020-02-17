@@ -99,6 +99,8 @@ public class HomeDosen extends AppCompatActivity implements View.OnClickListener
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        sharedPrefManager.saveSPString(SharedPrefManager.SP_KODE, "");
+                        sharedPrefManager.saveSPString(SharedPrefManager.SP_USER, "");
                         sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, false);
                         startActivity(new Intent(HomeDosen.this, Login.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));

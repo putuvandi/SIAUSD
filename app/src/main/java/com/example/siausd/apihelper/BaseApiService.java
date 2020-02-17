@@ -10,14 +10,14 @@ import retrofit2.http.Query;
 
 public interface BaseApiService {
 
-    // Fungsi untuk memanggil API http://localhost/sia/Login.php
+    // Fungsi untuk memanggil API http://localhost/sia/LoginMahasiswa.php
     @FormUrlEncoded
     @POST("LoginMahasiswa.php")
     Call<ResponseBody> loginMhsRequest(@Field("nim") String nim,
                                     @Field("password") String password);
 
 
-    // Fungsi untuk memanggil API http://localhost/sia/UbahPassword.php
+    // Fungsi untuk memanggil API http://localhost/sia/UbahPasswordMhs.php
     @FormUrlEncoded
     @POST("UbahPasswordMhs.php")
     Call<ResponseBody> ubahPassMhsRequest(@Field("nim") String nim,
@@ -25,7 +25,7 @@ public interface BaseApiService {
                                        @Field("passwordbaru") String passwordbaru,
                                        @Field("konfpassword") String konfpassword);
 
-    // Fungsi untuk memanggil API http://localhost/sia/UbahBiodata.php
+    // Fungsi untuk memanggil API http://localhost/sia/UbahBiodataMhs.php
     @FormUrlEncoded
     @POST("UbahBiodataMhs.php")
     Call<ResponseBody> ubahBiodataRequest(@Field("nim") String nim,
@@ -49,7 +49,7 @@ public interface BaseApiService {
                                           @Field("nikAyah") String nikAyah,
                                           @Field("nikIbu") String nikIbu);
 
-    // Fungsi untuk memanggil API http://localhost/sia/TampilBiodata.php
+    // Fungsi untuk memanggil API http://localhost/sia/TampilBiodataMhs.php
     @GET("TampilBiodataMhs.php")
     Call<ResponseBody> tampilBiodataMhsRequest(@Query("nim") String nim);
 
@@ -59,14 +59,14 @@ public interface BaseApiService {
 
     //-------------------------------- Dosen ----------------------------------------
 
-    // Fungsi untuk memanggil API http://localhost/sia/Login.php
+    // Fungsi untuk memanggil API http://localhost/sia/LoginDosen.php
     @FormUrlEncoded
     @POST("LoginDosen.php")
     Call<ResponseBody> loginDosenRequest(@Field("user") String user,
                                     @Field("password") String password);
 
 
-    // Fungsi untuk memanggil API http://localhost/sia/UbahPassword.php
+    // Fungsi untuk memanggil API http://localhost/sia/UbahPasswordDosen.php
     @FormUrlEncoded
     @POST("UbahPasswordDosen.php")
     Call<ResponseBody> ubahPassDosenRequest(@Field("user") String user,
@@ -74,7 +74,7 @@ public interface BaseApiService {
                                        @Field("passwordbaru") String passwordbaru,
                                        @Field("konfpassword") String konfpassword);
 
-    // Fungsi untuk memanggil API http://localhost/sia/TampilBiodata.php
+    // Fungsi untuk memanggil API http://localhost/sia/TampilBiodataDosen.php
     @GET("TampilBiodataDosen.php")
     Call<ResponseBody> tampilBiodataDosenRequest(@Query("kode_pegawai") String kode_pegawai);
 
@@ -86,7 +86,7 @@ public interface BaseApiService {
     @GET("TampilAllStatusPegawai.php")
     Call<ResponseBody> getAllStatusPegawai();
 
-    // Fungsi untuk memanggil API http://localhost/sia/UpdateBiodata.php
+    // Fungsi untuk memanggil API http://localhost/sia/UbahBiodataDosen.php
     @FormUrlEncoded
     @POST("UbahBiodataDosen.php")
     Call<ResponseBody> ubahBiodataDosenRequest(@Field("kode_pegawai") String kode_pegawai,

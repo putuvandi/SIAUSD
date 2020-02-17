@@ -67,9 +67,17 @@ public class Login extends AppCompatActivity {
         sharedPrefManager = new SharedPrefManager(this);
         // skip login jika user sudah login
         if (sharedPrefManager.getSPSudahLogin()){
-            startActivity(new Intent(Login.this, HomeMahasiswa.class)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-            finish();
+            if (!sharedPrefManager.getSPNim().equals("")) {
+                startActivity(new Intent(Login.this, SelamatDatangMhs.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                finish();
+            } else if (!sharedPrefManager.getSPKode().equals("") &&
+                    !sharedPrefManager.getSpUser().equals("")) {
+                startActivity(new Intent(Login.this, SelamatDatangMhs.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                finish();
+            }
+
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
@@ -80,8 +88,7 @@ public class Login extends AppCompatActivity {
         loginSebagai.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //String pilihan = parent.getItemAtPosition(position).toString();
-                //Toast.makeText(parent.getContext(), "Memilih: " + pilihan, Toast.LENGTH_LONG).show();
+
             }
 
             @Override
@@ -94,11 +101,11 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (txtUser.getText().toString().isEmpty() && !txtPassword.getText().toString().isEmpty()) {
-                    txtUser.setError("Masukkan NIM");
+                    txtUser.setError("Masukkan NIM atau username");
                 } else if (!txtUser.getText().toString().isEmpty() && txtPassword.getText().toString().isEmpty()) {
                     txtPassword.setError("Masukkan password");
                 } else if (txtUser.getText().toString().isEmpty() && txtPassword.getText().toString().isEmpty()) {
-                    txtUser.setError("Masukkan NIM");
+                    txtUser.setError("Masukkan NIM atau username");
                     txtPassword.setError("Masukkan password");
                 } else {
                     if (loginSebagai.getSelectedItem().equals("Mahasiswa")) {
@@ -123,7 +130,7 @@ public class Login extends AppCompatActivity {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         } else {
-            Toast.makeText(getBaseContext(), "Tekan back lagi untuk keluar", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getBaseContext(), "Tekan sekali lagi untuk keluar", Toast.LENGTH_SHORT).show();
         }
         backPressedTime = System.currentTimeMillis();
     }

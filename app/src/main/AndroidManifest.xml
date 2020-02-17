@@ -12,6 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".SelamatDatangDosen" />
         <activity android:name=".SelamatDatangMhs" />
         <activity android:name=".BiodataDosen" />
@@ -19,20 +26,8 @@
         <activity android:name=".HomeDosen" />
         <activity android:name=".BiodataMahasiswa" />
         <activity android:name=".UbahPasswordMahasiswa" />
-        <activity android:name=".Login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".HomeMahasiswa">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Login"></activity>
+        <activity android:name=".HomeMahasiswa"></activity>
     </application>
 
 </manifest>

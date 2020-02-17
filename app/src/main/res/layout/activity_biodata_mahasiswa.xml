@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BiodataMahasiswa">
@@ -11,31 +12,33 @@
         android:layout_height="wrap_content"
         android:background="@color/colorTowny"
         android:padding="8dp"
-        android:text="Biodata"
+        android:text="@string/ubah_biodata"
         android:textAppearance=
             "@android:style/TextAppearance.DeviceDefault.Large"
         android:textColor="@android:color/white"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/fiturHeading"
+        android:layout_marginTop="35dp"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
-        android:layout_below="@+id/fiturHeading">
+        app:layout_constraintTop_toBottomOf="@+id/fiturHeading">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioNim"
-                android:text="Nomor Mahasiswa" />
+                android:text="@string/nomor_mhs"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -45,14 +48,22 @@
                 android:cursorVisible="false"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
-                android:id="@+id/txtBioNim" />
+                android:id="@+id/txtBioNim"
+                android:layout_below="@+id/tvBioNim"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioNamaMhs"
                 android:paddingTop="16dp"
-                android:text="Nama Mahasiswa" />
+                android:text="@string/nama_mhs"
+                android:layout_below="@+id/txtBioNim"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -61,43 +72,71 @@
                 android:cursorVisible="false"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
-                android:id="@+id/txtBioNamaMhs"/>
+                android:id="@+id/txtBioNamaMhs"
+                android:layout_below="@+id/tvBioNamaMhs"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioTempatLahir"
                 android:paddingTop="16dp"
-                android:text="Tempat Lahir"/>
+                android:text="@string/tempat_lahir"
+                android:layout_below="@+id/txtBioNamaMhs"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <AutoCompleteTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtBioKabupatenLahir"/>
+                android:id="@+id/txtBioKabupatenLahir"
+                android:layout_below="@+id/tvBioTempatLahir"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtBioTempatLahir"/>
+                android:id="@+id/txtBioTempatLahir"
+                android:layout_below="@+id/txtBioKabupatenLahir"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioTglLahir"
                 android:paddingTop="16dp"
-                android:text="Tanggal Lahir" />
+                android:text="@string/tgl_lahir"
+                android:layout_below="@+id/txtBioTempatLahir"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtBioTglLahir"/>
+                android:id="@+id/txtBioTglLahir"
+                android:layout_below="@+id/tvBioTglLahir"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioJenisKelamin"
                 android:paddingTop="16dp"
-                android:text="Jenis Kelamin"/>
+                android:text="@string/jenis_kelamin"
+                android:layout_below="@+id/txtBioTglLahir"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -106,14 +145,22 @@
                 android:cursorVisible="false"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
-                android:id="@+id/txtBioJenisKelamin"/>
+                android:id="@+id/txtBioJenisKelamin"
+                android:layout_below="@+id/tvBioJenisKelamin"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioAlamatSkr"
                 android:paddingTop="16dp"
-                android:text="Alamat Sekarang"/>
+                android:text="@string/alamat_skr"
+                android:layout_below="@+id/txtBioJenisKelamin"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -125,38 +172,62 @@
                 android:maxLines="8"
                 android:scrollbars="vertical"
                 android:maxLength="255"
-                android:id="@+id/txtBioAlamatSkr"/>
+                android:id="@+id/txtBioAlamatSkr"
+                android:layout_below="@+id/tvBioAlamatSkr"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioKabupatenSkrg"
                 android:paddingTop="16dp"
-                android:text="Kabupaten Sekarang"/>
+                android:text="@string/kabupaten_skr"
+                android:layout_below="@+id/txtBioAlamatSkr"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <AutoCompleteTextView
+                android:id="@+id/txtBioKabupatenSkr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtBioKabupatenSkr"/>
+                android:layout_below="@+id/tvBioKabupatenSkrg"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioKodePosSkr"
                 android:paddingTop="16dp"
-                android:text="Kode Pos Sekarang"/>
+                android:text="@string/kodePos_skr"
+                android:layout_below="@+id/txtBioKabupatenSkr"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtBioKodePosSkr"/>
+                android:id="@+id/txtBioKodePosSkr"
+                android:layout_below="@+id/tvBioKodePosSkr"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioAlamatAsal"
                 android:paddingTop="16dp"
-                android:text="Alamat Asal"/>
+                android:text="@string/alamat_asal"
+                android:layout_below="@+id/txtBioKodePosSkr"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -168,38 +239,62 @@
                 android:maxLines="8"
                 android:scrollbars="vertical"
                 android:maxLength="255"
-                android:id="@+id/txtBioAlamatAsal"/>
+                android:id="@+id/txtBioAlamatAsal"
+                android:layout_below="@+id/tvBioAlamatAsal"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioKabupatenAsal"
                 android:paddingTop="16dp"
-                android:text="Kabupaten Asal"/>
+                android:text="@string/kabupaten_asal"
+                android:layout_below="@+id/txtBioAlamatAsal"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <AutoCompleteTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtBioKabupatenAsal"/>
+                android:id="@+id/txtBioKabupatenAsal"
+                android:layout_below="@+id/tvBioKabupatenAsal"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioKodePosAsal"
                 android:paddingTop="16dp"
-                android:text="Kode Pos Asal"/>
+                android:text="@string/kodePos_asal"
+                android:layout_below="@+id/txtBioKabupatenAsal"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtBioKodePosAsal"/>
+                android:id="@+id/txtBioKodePosAsal"
+                android:layout_below="@+id/tvBioKodePosAsal"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioNamaAyah"
                 android:paddingTop="16dp"
-                android:text="Nama Ayah"/>
+                android:text="@string/nama_ayah"
+                android:layout_below="@+id/txtBioKodePosAsal"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -211,33 +306,49 @@
                 android:maxLines="3"
                 android:scrollbars="vertical"
                 android:maxLength="50"
-                android:id="@+id/txtBioNamaAyah"/>
+                android:id="@+id/txtBioNamaAyah"
+                android:layout_below="@+id/tvBioNamaAyah"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioEmail"
                 android:paddingTop="16dp"
-                android:text="Email"/>
+                android:text="@string/email"
+                android:layout_below="@+id/txtBioNamaAyah"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
+                android:inputType="textEmailAddress"
                 android:lines="8"
                 android:minLines="1"
                 android:gravity="top|left"
                 android:maxLines="8"
                 android:scrollbars="vertical"
                 android:maxLength="255"
-                android:id="@+id/txtBioEmail"/>
+                android:id="@+id/txtBioEmail"
+                android:layout_below="@+id/tvBioEmail"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioNoHp"
                 android:paddingTop="16dp"
-                android:text="No. HP"/>
+                android:text="@string/no_hp"
+                android:layout_below="@+id/txtBioEmail"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -249,54 +360,86 @@
                 android:maxLines="2"
                 android:scrollbars="vertical"
                 android:maxLength="35"
-                android:id="@+id/txtBioNoHp"/>
+                android:id="@+id/txtBioNoHp"
+                android:layout_below="@+id/tvBioNoHp"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioNISN"
                 android:paddingTop="16dp"
-                android:text="NISN"/>
+                android:text="@string/nisn"
+                android:layout_below="@+id/txtBioNoHp"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:maxLength="10"
-                android:id="@+id/txtBioNISN"/>
+                android:id="@+id/txtBioNISN"
+                android:layout_below="@+id/tvBioNISN"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioNIK"
                 android:paddingTop="16dp"
-                android:text="NIK"/>
+                android:text="@string/nik"
+                android:layout_below="@+id/txtBioNISN"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:maxLength="16"
-                android:id="@+id/txtBioNIK"/>
+                android:id="@+id/txtBioNIK"
+                android:layout_below="@+id/tvBioNIK"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioTglLahirAyah"
                 android:paddingTop="16dp"
-                android:text="Tanggal Lahir Ayah" />
+                android:text="@string/tgl_lahir_ayah"
+                android:layout_below="@+id/txtBioNIK"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtBioTglLahirAyah"/>
+                android:id="@+id/txtBioTglLahirAyah"
+                android:layout_below="@+id/tvBioTglLahirAyah"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioNamaIbu"
                 android:paddingTop="16dp"
-                android:text="Nama Ibu Kandung"/>
+                android:text="@string/nama_ibu_kandung"
+                android:layout_below="@+id/txtBioTglLahirAyah"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -308,59 +451,88 @@
                 android:maxLines="3"
                 android:scrollbars="vertical"
                 android:maxLength="50"
-                android:id="@+id/txtBioNamaIbu"/>
+                android:id="@+id/txtBioNamaIbu"
+                android:layout_below="@+id/tvBioNamaIbu"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioTglLahirIbu"
                 android:paddingTop="16dp"
-                android:text="Tanggal Lahir Ibu" />
+                android:text="@string/tgl_lahir_ibu"
+                android:layout_below="@+id/txtBioNamaIbu"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtBioTglLahirIbu"/>
+                android:id="@+id/txtBioTglLahirIbu"
+                android:layout_below="@+id/tvBioTglLahirIbu"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioNIKAyah"
                 android:paddingTop="16dp"
-                android:text="NIK Ayah"/>
+                android:text="@string/nik_ayah"
+                android:layout_below="@+id/txtBioTglLahirIbu"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:maxLength="16"
-                android:id="@+id/txtBioNIKAyah"/>
+                android:id="@+id/txtBioNIKAyah"
+                android:layout_below="@+id/tvBioNIKAyah"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvBioNIKIbu"
                 android:paddingTop="16dp"
-                android:text="NIK Ibu"/>
+                android:text="@string/nik_ibu"
+                android:layout_below="@+id/txtBioNIKAyah"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:maxLength="16"
-                android:id="@+id/txtBioNIKIbu"/>
+                android:id="@+id/txtBioNIKIbu"
+                android:layout_below="@+id/tvBioNIKIbu"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <Button
+                android:id="@+id/btnUbahBiodata"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
-                android:paddingTop="16dp"
-                android:text="UBAH"
-                android:id="@+id/btnUbahBiodata"
+                android:layout_below="@+id/txtBioNIKIbu"
+                android:layout_marginStart="240dp"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/bg_rectangle_button"
-                android:textColor="@color/colorWhite"
-                android:layout_marginStart="240dp"/>
+                android:text="@string/ubah"
+                android:textColor="@color/colorWhite"/>
 
-        </LinearLayout>
+        </RelativeLayout>
     </ScrollView>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

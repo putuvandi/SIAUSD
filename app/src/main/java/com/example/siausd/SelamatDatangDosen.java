@@ -33,7 +33,6 @@ public class SelamatDatangDosen extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.nav_home:
-                        //setFragment(profileFragment);
                         startActivity(new Intent(getApplicationContext(), HomeDosen.class));
                         overridePendingTransition(0, 0);
                         return true;
@@ -41,7 +40,7 @@ public class SelamatDatangDosen extends AppCompatActivity {
                         konfirmasiLogout();
                         return true;
 
-                }// default:
+                }
                 return false;
             }
 
@@ -62,6 +61,8 @@ public class SelamatDatangDosen extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        sharedPrefManager.saveSPString(SharedPrefManager.SP_KODE, "");
+                        sharedPrefManager.saveSPString(SharedPrefManager.SP_USER, "");
                         sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, false);
                         startActivity(new Intent(SelamatDatangDosen.this, Login.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
