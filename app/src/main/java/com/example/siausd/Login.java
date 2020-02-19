@@ -73,7 +73,7 @@ public class Login extends AppCompatActivity {
                 finish();
             } else if (!sharedPrefManager.getSPKode().equals("") &&
                     !sharedPrefManager.getSpUser().equals("")) {
-                startActivity(new Intent(Login.this, SelamatDatangMhs.class)
+                startActivity(new Intent(Login.this, SelamatDatangDosen.class)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                 finish();
             }

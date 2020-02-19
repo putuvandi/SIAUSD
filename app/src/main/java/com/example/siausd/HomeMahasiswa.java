@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -31,7 +32,7 @@ import retrofit2.Response;
 
 public class HomeMahasiswa extends AppCompatActivity implements View.OnClickListener {
 
-    Button btnBiodataMhs, btnUbahPasswordMhs;
+    Button btnBiodataMhs, btnUbahPasswordMhs, btnJadwalPMB;
 
     BottomNavigationView btnNavigation;
 
@@ -50,6 +51,7 @@ public class HomeMahasiswa extends AppCompatActivity implements View.OnClickList
 
         btnBiodataMhs = (Button) findViewById(R.id.btnBiodataMhs);
         btnUbahPasswordMhs = (Button) findViewById(R.id.btnUbahPasswordMhs);
+        btnJadwalPMB = (Button) findViewById(R.id.btnJadwalPMB);
 
         btnNavigation = findViewById(R.id.btnNavigation);
 
@@ -62,6 +64,14 @@ public class HomeMahasiswa extends AppCompatActivity implements View.OnClickList
 
         btnBiodataMhs.setOnClickListener(this);
         btnUbahPasswordMhs.setOnClickListener(this);
+        btnJadwalPMB.setOnClickListener(this);
+
+        Intent intent = getIntent();
+        Uri uri = intent.getData();
+
+        if (uri != null) {
+
+        }
 
         btnNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -92,6 +102,23 @@ public class HomeMahasiswa extends AppCompatActivity implements View.OnClickList
             Intent intent = new Intent(this, UbahPasswordMahasiswa.class);
             startActivity(intent);
         }
+        if (v == btnJadwalPMB) {
+            String url = "http://pmb.usd.ac.id/jadwal";
+//            String url = "http://developer.android.com";
+            Uri halamanWeb = Uri.parse(url);
+
+            Intent intent = new Intent(Intent.ACTION_VIEW, halamanWeb);
+
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            } else {
+                Log.d("Error", "Ini error");
+            }
+        }
+    }
+
+    private void bukaWebsite() {
+
     }
 
     private void konfirmasiLogout() {

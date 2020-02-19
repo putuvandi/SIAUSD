@@ -42,6 +42,15 @@
             android:textColor="@color/colorWhite"
             android:background="@drawable/bg_rectangle_button"
             android:text="Ubah Password"/>
+
+        <Button
+            android:id="@+id/btnJadwalPMB"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/bg_rectangle_button"
+            android:text="Lihat Jadwal PMB"/>
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

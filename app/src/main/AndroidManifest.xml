@@ -29,7 +29,15 @@
         <activity android:name=".BiodataMahasiswa" />
         <activity android:name=".UbahPasswordMahasiswa" />
         <activity android:name=".Login"></activity>
-        <activity android:name=".HomeMahasiswa"></activity>
+        <activity android:name=".HomeMahasiswa">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http"
+                    android:host="pmb.usd.ac.id/jadwal" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
